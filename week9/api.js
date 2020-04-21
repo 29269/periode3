@@ -5,14 +5,26 @@
 //          bekend zijn.
 
 let results = [];
-let item, coordinates, address= {};
+let item, coordinates, address,id , email,street, timezone , gender, login, dob, registered, phone, call, picture, net = {};
 
 function users(items) {
     for (let count = 0; count < items.length; count++) {
 
         item = new Name(items[count].name);
         coordinates = new Coordinates(items[count].location.coordinates);
-        address = new Address(items[count].location)
+        address = new Address(items[count].location);
+        id = new Id(items[count].id);
+        email = new Email(items[count].email);
+        street = new Address(items[count].location.street);
+        timezone = new Timezone(items[count].location.timezone);
+        gender = new Gender(items[count].gender);
+        login = new  Login(items[count].login);
+        dob = new Dob(items[count].dob);
+        registered = new Registered(items[count].registered);
+        phone = new Phone(items[count].phone);
+        call = new Call(items[count].call);
+        picture = new Picture(items[count].picture);
+        net = new Net(items[count].net);
     }
     console.table(item);
     console.table(coordinates);
@@ -27,6 +39,18 @@ function users(items) {
     console.table(email);
     console.table(street);
     console.table(address);
+    console.table(time);
+    console.table(gender);
+    console.table(login);
+    console.table(dob);
+    console.table(registered);
+    console.table(phone);
+    console.table(call);
+    console.table(picture);
+    console.table(net);
+
+
+
 }
 
 function createGetRequest(url, callBack) {
@@ -40,7 +64,7 @@ function createGetRequest(url, callBack) {
             callBack(response)
 
         }
-    };
+    }
 
     request.open(
         'GET',
@@ -53,7 +77,7 @@ function createGetRequest(url, callBack) {
 
 function randomUser(json) {
     results = json.results.slice();
-    users(results)
+    users(results);
 }
 
 var url = 'https://randomuser.me/api/?results=1';
