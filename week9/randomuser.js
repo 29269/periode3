@@ -127,3 +127,4 @@ function Picture(item) {
 function Nat(item) {
     let natObject = this;
     natObject.nat = item;
+}
