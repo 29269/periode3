@@ -15,11 +15,19 @@
 // // id
 // // picture
 // // nat
+function Id(item) {
+    let idObj = this;
+    idObj.name = item;
+    idObj.vale = item;
+
+}
+
 function Gender(item) {
     let genderObj = this;
     genderObj.gender = item;
 
 }
+
 function Name(item) {
     nameObj = this;
     nameObj.title = item.title;
